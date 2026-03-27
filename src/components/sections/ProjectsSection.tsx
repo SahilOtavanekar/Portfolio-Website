@@ -121,20 +121,21 @@ export function ProjectsSection() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-4xl bg-white dark:bg-slate-900 rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+              className="relative w-full max-w-4xl bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[95vh] sm:max-h-[90vh]"
             >
-              <div className="px-6 py-4 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center bg-slate-50 dark:bg-slate-950/50 sticky top-0 z-10">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary-100 dark:bg-primary-900/50 rounded-xl flex items-center justify-center text-primary-600 dark:text-primary-400 shrink-0">
-                    <selectedProject.icon size={20} />
+              <div className="px-4 sm:px-6 py-4 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center bg-slate-50 dark:bg-slate-950/50 sticky top-0 z-50">
+                <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1 mr-4">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary-100 dark:bg-primary-900/50 rounded-lg sm:rounded-xl flex items-center justify-center text-primary-600 dark:text-primary-400 shrink-0">
+                    <selectedProject.icon size={18} />
                   </div>
-                  <h2 className="text-xl font-bold text-slate-900 dark:text-white truncate">
+                  <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white truncate">
                     {selectedProject.title}
                   </h2>
                 </div>
                 <button 
                   onClick={() => setSelectedProject(null)}
-                  className="p-2 bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 rounded-full transition-colors focus-ring"
+                  className="p-2 bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 rounded-full transition-colors focus-ring shrink-0"
+                  aria-label="Close details"
                 >
                   <X size={20} />
                 </button>

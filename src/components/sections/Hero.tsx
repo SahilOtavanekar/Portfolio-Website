@@ -38,11 +38,11 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.6, duration: 0.5 }}
-            className="text-lg md:text-2xl text-slate-700 dark:text-slate-300 font-medium mb-6 flex flex-wrap justify-center gap-1 sm:gap-2 items-center"
+            className="text-lg md:text-2xl text-slate-700 dark:text-slate-300 font-medium mb-6 flex flex-col sm:flex-row justify-center gap-1 sm:gap-2 items-center"
           >
             <span>Data Scientist</span>
             <span className="hidden sm:inline text-slate-300 dark:text-slate-600">|</span>
-            <span>Machine Learning Engineer</span>
+            <span>ML Engineer</span>
           </motion.h3>
           
           <motion.p 
@@ -62,7 +62,7 @@ export function Hero() {
           >
             <a 
               href="#projects"
-              className="px-8 py-3 rounded-full bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white font-medium transition-all shadow-lg hover:shadow-primary-500/30 focus-ring"
+              className="w-full sm:w-auto px-8 py-3 rounded-full bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white font-medium transition-all shadow-lg hover:shadow-primary-500/30 focus-ring"
             >
               View Projects
             </a>
