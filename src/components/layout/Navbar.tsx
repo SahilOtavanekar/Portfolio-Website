@@ -21,6 +21,27 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const id = href.replace('#', '');
+    const element = id ? document.getElementById(id) : null;
+    
+    // Close mobile menu
+    setIsOpen(false);
+    
+    // Use a small timeout to allow the menu state change to register 
+    // and prevent the exit animation from interrupting the scroll
+    setTimeout(() => {
+      if (id === '') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.history.pushState(null, '', '/');
+      } else if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        window.history.pushState(null, '', href);
+      }
+    }, 10);
+  };
+
   return (
     <header className={cn(
       "fixed top-0 w-full z-50 transition-all duration-300",
@@ -29,7 +50,11 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 flex items-center">
-            <a href="#" className="text-xl font-bold tracking-tighter text-slate-900 dark:text-white">
+            <a 
+              href="#" 
+              onClick={(e) => handleNavClick(e, '#')}
+              className="text-xl font-bold tracking-tighter text-slate-900 dark:text-white"
+            >
               SO
             </a>
           </div>
@@ -40,6 +65,7 @@ export function Navbar() {
                 <a
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                 >
                   {item.name}
@@ -75,7 +101,7 @@ export function Navbar() {
                 <a
                   key={item.name}
                   href={item.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="block px-3 py-3 rounded-xl text-lg font-medium text-slate-700 dark:text-slate-300 hover:text-primary-600 hover:bg-slate-50 dark:hover:text-primary-400 dark:hover:bg-slate-800 transition-colors"
                 >
                   {item.name}
