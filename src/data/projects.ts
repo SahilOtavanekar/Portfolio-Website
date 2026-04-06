@@ -1,4 +1,4 @@
-import { Activity, ShoppingBag, Search, LineChart, Bot, TrendingUp } from 'lucide-react';
+import { Activity, ShoppingBag, Search, LineChart, Bot, TrendingUp, BarChart } from 'lucide-react';
 
 export interface ProjectData {
   id: string;
@@ -124,6 +124,24 @@ export const projects: ProjectData[] = [
       'Integrated multilingual Text-to-Speech (English/Hindi) for enhanced accessibility.',
       'Established a secure, rate-limited backend with robust audit logging.',
       'Delivered a premium mobile-responsive UI with smooth interactive animations.'
+    ]
+  },
+  {
+    id: 'ecommerce-sales-analysis',
+    title: 'E-Commerce Sales Analysis',
+    shortDescription: 'End-to-end data pipeline & dashboard analyzing a real-world Brazilian e-commerce dataset for business insights.',
+    category: 'Data Analysis & BI',
+    tags: ['Power BI', 'PostgreSQL', 'DAX', 'Data Modeling', 'SQL'],
+    githubLink: 'https://github.com/SahilOtavanekar/ecommerce-analytics-dashboard',
+    icon: BarChart,
+    problemStatement: 'E-commerce businesses need to extract actionable business insights related to sales performance, customer behavior, and operational efficiency from raw, multi-table transactional datasets.',
+    approach: 'Performed end-to-end data handling: cleaned and transformed multiple relational tables using PostgreSQL, created a star schema model, and built an interactive Power BI dashboard with custom DAX measures.',
+    techniques: ['Data Preprocessing', 'Star Schema Data Modeling', 'DAX Measures', 'Interactive Dashboards', 'SQL Joins'],
+    keyResults: [
+      'Cleaned and joined multi-table transactional records covering orders, customers, and payments.',
+      'Developed custom DAX measures for total revenue, average order value (AOV), and YoY growth.',
+      'Created an interactive 4-page Power BI dashboard for Executive, Time, Category, and Geographic analytics.',
+      'Derived key insights showing revenue concentration and correlation between delivery performance and customer ratings.'
     ]
   }
 ];
